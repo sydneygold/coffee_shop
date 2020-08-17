@@ -1,3 +1,6 @@
+require "tty-prompt"
+prompt = TTY::Prompt.new
+
 require 'bundler/setup'
 Bundler.require
 
