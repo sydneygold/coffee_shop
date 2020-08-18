@@ -12,14 +12,9 @@ class Cli
         puts "Can I get your name?"
         @name = gets.strip
         system "clear"
-<<<<<<< HEAD
-        puts "Thanks, #{@name}!"
-        puts "\n" 
-=======
         puts "Thanks, " + @name.capitalize + "!"
         sleep(0.5)
         puts "\n"
->>>>>>> 46270bad2ceb730515752c0d30f160f84e5d422b
         puts "I'd be happy to help get the perfectly curated cup for you."
         sleep(1.25)
         puts "\n"
@@ -36,7 +31,6 @@ class Cli
                     puts "Sorry this is just a coffeehouse. But we highly recommend the Teahouse in Boulder!"
                 else
                     system "clear"
-<<<<<<< HEAD
 
                     menu_options = ["I don't know, surprise me!", "I need help deciding..", "I'll come back another time."]
                     choice = prompt.select("You came to the right place! Do you know what you want to order?", menu_options)
@@ -50,11 +44,6 @@ class Cli
                             sleep(1.5)
                             abort
                         end        
-=======
-                    puts "Great, let's get some more info."
-                    sleep(1.25)
-                    drink_options
->>>>>>> 46270bad2ceb730515752c0d30f160f84e5d422b
                 end  
     end  
 
