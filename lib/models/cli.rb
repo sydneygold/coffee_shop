@@ -12,21 +12,31 @@ class Cli
         puts "Can I get your name?"
         @name = gets.strip
         system "clear"
+<<<<<<< HEAD
         puts "Thanks, #{@name}!"
         puts "\n" 
+=======
+        puts "Thanks, " + @name.capitalize + "!"
+        sleep(0.5)
+        puts "\n"
+>>>>>>> 46270bad2ceb730515752c0d30f160f84e5d422b
         puts "I'd be happy to help get the perfectly curated cup for you."
         sleep(1.25)
+        puts "\n"
         coffee_or_tea
     end    
 
     def coffee_or_tea
         prompt = TTY::Prompt.new
+        system "clear"
+        
         choices = %w(Tea Coffee)
-        type = prompt.select("What type of drink do you want?", choices, symbols: { marker: ">" })
+        type = prompt.select("What type of drink would you like?", choices, symbols: { marker: ">" })
                 if type == "Tea"
                     puts "Sorry this is just a coffeehouse. But we highly recommend the Teahouse in Boulder!"
                 else
                     system "clear"
+<<<<<<< HEAD
 
                     menu_options = ["I don't know, surprise me!", "I need help deciding..", "I'll come back another time."]
                     choice = prompt.select("You came to the right place! Do you know what you want to order?", menu_options)
@@ -40,12 +50,16 @@ class Cli
                             sleep(1.5)
                             abort
                         end        
+=======
+                    puts "Great, let's get some more info."
+                    sleep(1.25)
+                    drink_options
+>>>>>>> 46270bad2ceb730515752c0d30f160f84e5d422b
                 end  
     end  
 
     def drink_options
         prompt = TTY::Prompt.new(symbols: {marker: '>'})
-        system "clear"
         caffeine = prompt.yes?("Do you want a caffeinated drink?")
         milk = prompt.yes?("Do you want milk in your drink?")
             if milk == true
@@ -55,12 +69,37 @@ class Cli
             end
         sweet = prompt.yes?("Do you want a sweet drink?")
             if sweet == true
-                syrups = prompt.select("What flavor do you want in your drink?", %w(Vanilla Chocolate Caramel Coconut))
+                syrup = prompt.select("What flavor do you want in your drink?", %w(Vanilla Mocha Caramel Coconut))
             else
                 puts "You're sweet enough!"
             end
         temp = prompt.select("Do you want it hot or cold?", %w(Hot Iced Blended)) 
-        drink=Drink.where()
-                            
+        system "clear"
+        if milk == true
+            if syrup == true
+                confirm = prompt.yes?("So you want a " + temp.downcase + " " + syrup.downcase + " drink with " + milk_alt.downcase + " milk?")
+            else
+                confirm = prompt.yes?("So you want a " + temp.downcase + " drink with " + milk_alt.downcase + " milk?")
+            end    
+        else  
+            if syrup == true
+                confirm = prompt.yes?("So you want a " + temp.downcase + " " + syrup.downcase + " drink?")
+            else
+                confirm = prompt.yes?("So you want a " + temp.downcase + " drink?")
+            end    
+        end
+        
+        system "clear"
+        if confirm == true
+            puts "Hmmmm.... Let me think...."
+            sleep(2.5)
+            puts "Here's my suggestion:"
+        else
+            puts "Let's try again..."
+            sleep(1.25)
+            drink_options
+        end
+        
+        # drinks = Drink.where(milk: milk, sweet: sweet)                    
     end
 end
