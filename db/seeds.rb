@@ -4,3 +4,4 @@ iced_coffee = Drink.create (name: "Iced Coffee", description: "A strong coffee b
 latte = Drink.create(name: "Latte", description: "Espresso paired with steamed milk", caffeine: true, milk: false, sweet: false)
 flavored_latte = Drink.create(name: "Flavored Latte",description: "Espresso paired with steamed milk and syrups", caffeine: true, milk: true, sweet: true)
 frappe = Drink.create(name: "Frappe", description: "A blended drink with espresso, milk, and syrup", caffeine: true, milk: true, sweet: true )
+
