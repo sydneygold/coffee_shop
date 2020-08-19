@@ -5,10 +5,7 @@ class CreateDrinksTable < ActiveRecord::Migration[6.0]
       t.text :description
       t.boolean :caffeine
       t.boolean :milk
-      t.string :milk_alt
       t.boolean :sweet
-      t.string :syrups
-      t.boolean :temp
     end
   end
 end
